@@ -7,21 +7,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <TextInput
-          placeholder="Ingresa aquí tu item"
-          style={{
-            borderBottomColor: "black",
-            borderBottomWidth: 2,
-            width: 200,
-          }}
-        />
+      <View style={styles.inputContainer}>
+        <TextInput styles={styles.input} placeholder="Agrega un item" />
         <Button title="Agregar Item" onPress={handleButton} />
       </View>
       <View></View>
@@ -35,5 +22,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  input: {
+    borderBottomColor: "black",
+    borderBottomWidth: 2,
+    width: 200,
   },
 });
