@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
   },
   inputItem: {
   fontSize: 28,
-  color: "white"
+  color: "white",
+  width: 700,
   },
   inputContainer: {
     flex: 1,
