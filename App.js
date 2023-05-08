@@ -64,6 +64,7 @@ export default function App() {
         <View style={styles.addItemContainer}>
           <TextInput
             placeholder="Verduras, Carnes, Jabón..."
+            placeholderTextColor="#FFFFFF"
             style={styles.inputItem}
             onChangeText={onHandleChangeText}
             value={textItem}
