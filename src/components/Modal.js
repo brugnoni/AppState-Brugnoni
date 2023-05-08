@@ -11,9 +11,13 @@ const Modal = ({ isVisible, actionDeleteItem, itemSelected }) => {
   return (
     <NewModal visible={isVisible} animationType="fade" transparent={true}>
       <View style={styles.modalContainer}>
+        <Text style={styles.titleContainer}>
+          Eliminarás: {itemSelected.name}
+        </Text>
         <View>
-          <Text style={styles.modalTextDelete}>Estás seguro/a que deseas borrar este elemento?</Text>
-          <Text style={styles.modalTextStyle}>{itemSelected.name}</Text>
+          <Text style={styles.modalTextDelete}>
+            Estás seguro/a que deseas borrar este elemento?
+          </Text>
           <Button
             title="Eliminar"
             color={"red"}
@@ -36,7 +40,14 @@ const styles = StyleSheet.create({
     color: "white",
   },
   modalTextDelete: {
-    color:"white",
+    color: "white",
+  },
+  titleContainer: {
+    fontSize: 30,
+    fontWeight: "500",
+    color: "white",
+    marginBottom: 20,
+    textAlign: "center",
   },
   modalStyle: {
     width: "80%",
@@ -57,9 +68,14 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalTextStyle: {
-    fontSize: 24 ,
+    fontSize: 24,
     textAlign: "center",
     color: "white",
     padding: "10%",
   },
-}); 
+  modalTextDelete: {
+    marginBottom: 20,
+    textAlign: "center",
+    color: "white",
+  },
+});
