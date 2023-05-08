@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
   },
   inputItem: {
     fontSize: 16,
-    color: "white",
     width: 200,
   },
   inputContainer: {
