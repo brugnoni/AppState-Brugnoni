@@ -1,47 +1,42 @@
-import { StyleSheet, View } from "react-native";
-
-import GameScreen from "./src/screens/GameScreen";
-import Header from "./src/components/Header";
-import StartGame from "./src/screens/StartGame";
 import { useFonts } from "expo-font";
-import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
+import ShopNavigator from "./src/navigation/ShopNavigator";
 
 export default function App() {
-  const [loaded] = useFonts({
-    "InstrumentSerif-Italic": require("./src/assets/fonts/InstrumentSerif-Italic.ttf"),
-  });
+  const [isPortrait, setIsPortrait] = useState(true);
 
-  const [userNumber, setUserNumber] = useState();
+  const statePortrait = () => setIsPortrait(onPortrait);
 
-  const handleStartGame = (selectedNumber) => {
-    setUserNumber(selectedNumber);
+  const onPortrait = () => {
+    const dim = Dimensions.get("screen");
+    return dim.height > dim.width;
   };
 
-  let content = <StartGame onStartGame={handleStartGame} />;
+  useEffect(() => {
+    Dimensions.addEventListener("change", statePortrait);
+  }, []);
 
-  if (userNumber) {
-    content = <GameScreen />;
-  }
+  const [fontsLoaded] = useFonts({
+    InstrumentSerif: require("./src/assets/fonts/InstrumentSerif-Regular.ttf"),
+  });
 
-  if (!loaded) {
+  if (!fontsLoaded) {
     return null;
   }
 
-  return (
-    <View style={styles.container}>
-      <Header title={"Adivina el numero"} newStyles={styles.headerTitle} />
-      {content}
-    </View>
-  );
+  return <ShopNavigator />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  headerTitle: {
-    color: "white",
-    fontSize: 22,
-    fontFamily: "InstrumentSerif-Italic",
+  texto: {
+    color: "black",
   },
 });
