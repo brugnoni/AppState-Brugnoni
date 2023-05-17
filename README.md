@@ -1,6 +1,6 @@
-# Switch-Brugnoni
+# Navegación-Brugnoni
 
-Minijuego para la 3er entrega del Curso de Desarollo de Aplicaciones de Coderhouse
+Simulador de panaderia para la 4ta entrega del Curso de Desarollo de Aplicaciones de Coderhouse
 
 Para iniciar:
 1. Clonar el Repo
