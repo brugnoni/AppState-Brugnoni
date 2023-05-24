@@ -1,6 +1,6 @@
-# Navegación-Brugnoni
+# TabNav-Brugnoni
 
-Simulador de panaderia para la 4ta entrega del Curso de Desarollo de Aplicaciones de Coderhouse
+Simulador de local de venta de computadoras
 
 Para iniciar:
 1. Clonar el Repo
