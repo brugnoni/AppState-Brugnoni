@@ -1,14 +1,30 @@
+import { FlatList, StyleSheet, View } from "react-native";
+
+import { CATEGORIES } from "../data/categories";
+import CategoriesItem from "../components/CategoriesItem";
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
 
 const CategoriesScreen = ({ navigation }) => {
+  const handleSelectedCategory = item => {
+    navigation.navigate("Products", {
+      categoryId: item.id,
+      name: item.title,
+    });
+  };
+
+  const renderCategoriesItem = ({ item }) => (
+    <View style={styles.categoriesContainer}>
+      <CategoriesItem item={item} onSelected={handleSelectedCategory} />
+    </View>
+  );
+
   return (
     <View style={styles.container}>
-      <Text>CategoriesScreen</Text>
-      <Button
-        title="Navegar a las categorías de Bread"
-        onPress={() => navigation.navigate("Bread")}
-      ></Button>
+      <FlatList
+        data={CATEGORIES}
+        renderItem={renderCategoriesItem}
+        keyExtractor={item => item.id}
+      />
     </View>
   );
 };
@@ -18,14 +34,12 @@ export default CategoriesScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 12,
-    backgroundColor: "#fff",
-    paddingBottom: 120,
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
   },
-  text: {
-    fontSize: 18,
-    padding: 8,
+  categoriesContainer: {
+    padding: 15,
+    height: 150,
   },
 });
