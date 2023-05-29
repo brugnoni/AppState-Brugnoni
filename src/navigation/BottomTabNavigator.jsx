@@ -3,6 +3,7 @@ import CartNavigator from "./CartNavigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import ShopNavigator from "./ShopNavigator";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import OrdersScreen from "../screens/OrdersScreen";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -35,6 +36,18 @@ export default BottomTabNavigator = () => {
             <View>
               <Ionicons name="cart" size={30} color="black" />
               <Text>Cart</Text>
+            </View>
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="Orders"
+        component={OrdersScreen}
+        options={{
+          tabBarIcon: () => (
+            <View>
+              <Ionicons name="list" size={30} color="black" />
+              <Text>Ordenes</Text>
             </View>
           ),
         }}

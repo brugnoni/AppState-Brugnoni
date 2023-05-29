@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
 import { CART } from "../data/cart";
 import CartItem from "../components/CartItem";
 import React from "react";

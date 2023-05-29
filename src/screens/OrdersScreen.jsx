@@ -4,19 +4,20 @@ import { ORDERS } from "../data/orders";
 import OrderItem from "../components/OrderItem";
 import React from "react";
 
+
 const OrdersScreen = () => {
-  const handeleDeleteOrder = () => {
+  const handleDeleteOrder = () => {
     console.log("Eliminar orden");
   };
   const renderOrderItem = ({ item }) => (
-    <OrderItem item={item} onDelete={handeleDeleteOrder} />
+    <OrderItem item={item} onDelete={handleDeleteOrder} />
   );
 
   return (
     <View>
       <FlatList
         data={ORDERS}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={renderOrderItem}
       />
     </View>
@@ -24,4 +25,3 @@ const OrdersScreen = () => {
 };
 
 export default OrdersScreen;
-
