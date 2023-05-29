@@ -1,4 +1,4 @@
-# TabNav-Brugnoni
+# AppState-Brugnoni
 
 Simulador de local de venta de computadoras
 
