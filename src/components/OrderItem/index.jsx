@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import styles from "./styles";
 
-const formatDay = date => {
+const formatDay = (date) => {
   const newDate = new Date(date);
   return newDate.toLocaleDateString();
 };
@@ -12,6 +12,7 @@ const formatDay = date => {
 const OrderItem = ({ item, onDelete }) => {
   return (
     <View style={styles.order}>
+      <Text>Orden: {item.id}</Text>
       <View>
         <Text style={styles.date}>{formatDay(item.date)}</Text>
         <Text style={styles.total}>Total: {item.total}</Text>
