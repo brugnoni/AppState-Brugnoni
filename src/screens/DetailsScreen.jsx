@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-
+import { Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import React from "react";
 
-const DetailsScreen = ({ route }) => {
-  const pc = route.params.product;
+const DetailsScreen = () => {
+  const pc = useSelector((state) => state.products.selected);
+
   return (
     <View>
       <Text>{pc.name}</Text>
@@ -14,4 +15,3 @@ const DetailsScreen = ({ route }) => {
 };
 
 export default DetailsScreen;
-
