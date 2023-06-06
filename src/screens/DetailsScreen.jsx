@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import React from "react";
 
 const DetailsScreen = () => {
-  const pc = useSelector((state) => state.products.selected);
+  const item = useSelector((state) => state.products.selected);
 
   return (
     <View>
-      <Text>{pc.name}</Text>
-      <Text>{pc.description}</Text>
-      <Text>${pc.price}</Text>
+      <Text>{item.name}</Text>
+      <Text>{item.description}</Text>
+      <Text>${item.price}</Text>
     </View>
   );
 };
