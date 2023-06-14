@@ -13,6 +13,7 @@ const CategoriesScreen = ({ navigation }) => {
     dispatch(selectedCategory(item.id));
     navigation.navigate("Products", {
       name: item.title,
+      categoryId: item.id,
     });
   };
 

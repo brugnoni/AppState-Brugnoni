@@ -1,0 +1,1 @@
+export const URL_API = 'https://appstate-2023-default-rtdb.firebaseio.com/'

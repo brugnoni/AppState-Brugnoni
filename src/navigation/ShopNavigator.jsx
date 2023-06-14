@@ -25,7 +25,7 @@ const ShopNavigator = () => {
         name="Home"
         component={CategoriesScreen}
         options={{
-          title: "Elegí la categoría de Hardware",
+          title: "Productos",
         }}
       />
       <Stack.Screen
