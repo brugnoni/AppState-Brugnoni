@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { CART } from "../data/cart";
 import CartItem from "../components/CartItem";
 import React from "react";
 import { confirm_cart, remove_item } from "../store/actions/cart.action";
@@ -16,14 +15,13 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
-
   const handleDeleteItem = (id) => {
     console.log(id);
     dispatch(remove_item(id));
   };
 
   const handleConfirmCart = () => {
-    dispatch(confirm_cart());
+    dispatch(confirm_cart(items, total));
   };
 
   const renderCartItem = ({ item }) => (
@@ -40,13 +38,10 @@ const CartScreen = () => {
         />
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity
-          style={styles.confirm}
-          onPress={() => console.log("Compra realizada")}
-        >
+        <TouchableOpacity style={styles.confirm} onPress={handleConfirmCart}>
           <Text>Confirm</Text>
           <View>
-            <Text style={styles.priceText}>Total: {total}</Text>
+            <Text style={styles.priceText}> {`Total: ${total}`} </Text>
           </View>
         </TouchableOpacity>
       </View>
