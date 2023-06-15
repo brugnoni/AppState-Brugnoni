@@ -1,6 +1,6 @@
-# AppState-Brugnoni
+# Compus-Brugnoni
 
-Simulador de local de venta de computadoras
+Simulador de local de venta de computadoras con inicio de sesión
 
 Para iniciar:
 1. Clonar el Repo
