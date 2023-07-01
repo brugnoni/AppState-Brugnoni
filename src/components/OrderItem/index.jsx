@@ -10,6 +10,9 @@ const formatDay = (date) => {
 };
 
 const OrderItem = ({ item, onDelete }) => {
+  const handleDeleteOrder = () => {
+    onDelete(item.id);
+  };
   return (
     <View style={styles.order}>
       <View>

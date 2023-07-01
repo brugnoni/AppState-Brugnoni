@@ -1,5 +1,5 @@
 import { URL_API } from "../../constants/database";
-export const GET_ORDERS = "GET_ORDERS";
+import { GET_ORDERS, DELETE_ORDER } from "./ordersActionTypes";
 
 export const getOrders = () => {
   return async (dispatch) => {
@@ -11,15 +11,20 @@ export const getOrders = () => {
         },
       });
       const result = await response.json();
-      console.log(result);
       const orders = Object.keys(result).map((key) => ({
         ...result[key],
         id: key,
       }));
-      console.log(orders);
       dispatch({ type: GET_ORDERS, payload: orders });
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const deleteOrder = (orderId) => {
+  return {
+    type: DELETE_ORDER,
+    payload: orderId,
   };
 };

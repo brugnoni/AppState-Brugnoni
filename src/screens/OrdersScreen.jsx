@@ -1,9 +1,8 @@
 import { FlatList, StyleSheet, View } from "react-native";
-
 import OrderItem from "../components/OrderItem";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getOrders } from "../store/actions/orders.action";
+import { getOrders, deleteOrder } from "../store/actions/orders.action";
 import { useEffect } from "react";
 
 const OrdersScreen = () => {
@@ -14,11 +13,12 @@ const OrdersScreen = () => {
     dispatch(getOrders());
   }, []);
 
-  const handleDeleteOrder = () => {
-    console.log("Eliminar orden");
+  const handleDeleteOrder = (orderId) => {
+    dispatch(deleteOrder(orderId));
   };
+
   const renderOrderItem = ({ item }) => (
-    <OrderItem item={item} onDelete={handleDeleteOrder} />
+    <OrderItem item={item} onDelete={() => handleDeleteOrder(item.id)} />
   );
 
   return (
