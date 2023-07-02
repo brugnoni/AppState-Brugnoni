@@ -1,9 +1,8 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import OrderItem from "../components/OrderItem";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getOrders, deleteOrder } from "../store/actions/orders.action";
-import { useEffect } from "react";
 
 const OrdersScreen = () => {
   const dispatch = useDispatch();
@@ -11,7 +10,7 @@ const OrdersScreen = () => {
 
   useEffect(() => {
     dispatch(getOrders());
-  }, []);
+  }, [dispatch]);
 
   const handleDeleteOrder = (orderId) => {
     dispatch(deleteOrder(orderId));
@@ -22,7 +21,7 @@ const OrdersScreen = () => {
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={orders}
         keyExtractor={(item) => item.id}
@@ -39,25 +38,5 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 12,
     backgroundColor: "#91A8D0",
-  },
-  list: {
-    flex: 3,
-  },
-  footer: {
-    flex: 1,
-    padding: 12,
-    borderTopColor: "#ccc",
-    borderTopWidth: 1,
-  },
-  confirm: {
-    backgroundColor: "#ededed",
-    borderRadius: 10,
-    padding: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  priceText: {
-    fontSize: 24,
   },
 });
