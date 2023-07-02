@@ -7,11 +7,13 @@ import {
   TextInput,
   Button,
   KeyboardAvoidingView,
+  ImageBackground,
 } from "react-native";
 import { useState, useCallback, useEffect, useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { signUp } from "../store/actions/auth.action";
 import Input from "../components/Input";
+import { Dimensions } from "react-native";
 
 const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
 
@@ -39,6 +41,10 @@ const formReducer = (state, action) => {
 };
 
 const AuthScreen = () => {
+  const screenWidth = Dimensions.get("window").width;
+
+  const screenHeight = Dimensions.get("window").height;
+
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
 
@@ -86,63 +92,82 @@ const AuthScreen = () => {
   );
 
   return (
-    <KeyboardAvoidingView
-      style={styles.mainContainer}
-      behavior="margin"
-      keyboardVerticalOffset={50}
+    <View
+      style={[styles.container, { width: screenWidth, height: screenHeight }]}
     >
-      <View style={styles.container}>
-        <Text style={styles.title}>Your Next PC</Text>
-        <Text style={styles.title}>Create Account</Text>
-        <View>
-          <Input
-            id="email"
-            label="Email"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
-            returnKeyType="next"
-            required
-            email
-            errorText={"Porfavor ingrese un email válido"}
-            onInputChange={onInputChangeHandler}
-            initialValue=""
-          />
-          <Input
-            id="password"
-            label="Password"
-            keyboardType="default"
-            autoCapitalize="none"
-            autoCorrect={false}
-            required
-            password
-            secureTextEntry
-            errorText={"Porfavor ingrese una contraseña válido"}
-            onInputChange={onInputChangeHandler}
-            initialValue=""
-          />
-        </View>
-        <View style={styles.footer}>
-          <Button title="Register" onPress={handleSignUp} />
-        </View>
-      </View>
-    </KeyboardAvoidingView>
+      <ImageBackground
+        source={require("../assets/next.jpg")}
+        style={styles.backgroundImage}
+      >
+        <KeyboardAvoidingView
+          style={[
+            styles.mainContainer,
+            { width: screenWidth, height: screenHeight },
+          ]}
+          behavior="padding"
+          keyboardVerticalOffset={50}
+        >
+          <View style={styles.contentContainer}>
+            <Text style={styles.title}>Your Next PC</Text>
+            <Text style={styles.title}>Create Account</Text>
+            <View style={styles.inputContainer}>
+              <Input
+                id="email"
+                label="Email"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+                returnKeyType="next"
+                required
+                email
+                errorText={"Porfavor ingrese un email válido"}
+                onInputChange={onInputChangeHandler}
+                initialValue=""
+              />
+              <Input
+                id="password"
+                label="Password"
+                keyboardType="default"
+                autoCapitalize="none"
+                autoCorrect={false}
+                required
+                password
+                secureTextEntry
+                errorText={"Porfavor ingrese una contraseña válido"}
+                onInputChange={onInputChangeHandler}
+                initialValue=""
+              />
+            </View>
+            <View style={styles.footer}>
+              <Button title="Register" onPress={handleSignUp} />
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </ImageBackground>
+    </View>
   );
 };
 
 export default AuthScreen;
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
-    backgroundColor: "#f9f9f9",
     justifyContent: "center",
     alignItems: "center",
   },
-  container: {
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+  },
+  mainContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  contentContainer: {
     width: "80%",
     maxWidth: 400,
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
     borderRadius: 10,
     padding: 20,
     shadowColor: "#000",
@@ -155,6 +180,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 10,
     textAlign: "center",
+  },
+  inputContainer: {
+    marginBottom: 10,
   },
   footer: {
     marginTop: 20,

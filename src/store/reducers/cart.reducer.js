@@ -6,7 +6,9 @@ const initial_state = {
 };
 
 const sumTotal = (list) => {
-  list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0);
+  return list
+    .map((item) => item.quantity * item.price)
+    .reduce((a, b) => a + b, 0);
 };
 
 const CartReducer = (state = initial_state, action) => {

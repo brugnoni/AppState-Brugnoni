@@ -8,7 +8,7 @@ import {
 import CartItem from "../components/CartItem";
 import React from "react";
 import { confirm_cart, remove_item } from "../store/actions/cart.action";
-
+import { colors } from "../constants/colors";
 import { useSelector, useDispatch } from "react-redux";
 
 const CartScreen = () => {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
   },
   confirm: {
-    backgroundColor: "#ededed",
+    backgroundColor: "#91A8D0",
     borderRadius: 10,
     padding: 10,
     flexDirection: "row",
