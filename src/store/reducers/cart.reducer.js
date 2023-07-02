@@ -25,7 +25,6 @@ const CartReducer = (state = initial_state, action) => {
       if (indexItem === -1) {
         const item = { ...action.item, quantity: 1 };
         const updateCart = [...state.items, item];
-        console.log(updateCart);
         return { ...state, items: updateCart, total: sumTotal(updateCart) };
       }
       const items = [...state.items].map((item) => {

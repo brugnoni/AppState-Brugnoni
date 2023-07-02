@@ -3,7 +3,6 @@ import { URL_AUTH_KEY } from "../../constants/database";
 export const SIGNUP = "SIGNUP";
 
 export const signUp = (email, password) => {
-  console.log(email, password);
   return async (dispatch) => {
     try {
       const res = await fetch(URL_AUTH_KEY, {

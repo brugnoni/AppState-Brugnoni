@@ -16,7 +16,6 @@ const CartScreen = () => {
   const items = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
   const handleDeleteItem = (id) => {
-    console.log(id);
     dispatch(remove_item(id));
   };
 
