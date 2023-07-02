@@ -1,4 +1,4 @@
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Button, StyleSheet, Image } from "react-native";
 import React from "react";
 import { add_item } from "../store/actions/cart.action";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +13,7 @@ const DetailsScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.image} source={{ uri: item.image }} />
       <Text>{item.name}</Text>
       <Text>{item.description}</Text>
       <Text>${item.price}</Text>
@@ -28,5 +29,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: "contain",
+    marginVertical: 10,
   },
 });

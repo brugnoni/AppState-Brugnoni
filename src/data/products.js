@@ -20,7 +20,7 @@ export const PRODUCTS = [
   {
     id: "2",
     category: "1",
-    name: "PC Oficina media Gamer",
+    name: "PC Oficina 2.0",
     description: "Tira Chrome y Excel juntos, además podes usar whatsapp web",
     price: 40000,
     image:

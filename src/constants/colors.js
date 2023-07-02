@@ -1,6 +1,6 @@
 export const COLORS = {
-  primary: "#FFD700", // Amarillo dorado
-  secondary: "#FF6F61", // Rojo coral
-  tertiary: "#7FCDCD", // Verde azulado
-  quaternary: "#6155A6", // Morado oscuro
+  primary: "#91A8D0", // Azul claro
+  secondary: "#5C80A1", // Azul medio
+  tertiary: "#385B7F", // Azul oscuro
+  quaternary: "#1C3D5F", // Azul profundo
 };
