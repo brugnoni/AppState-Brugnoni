@@ -4,7 +4,7 @@ export const CATEGORIES = [
   {
     id: "1",
     title: "PC de Oficina",
-    img: "https://http2.mlstatic.com/D_NQ_NP_2X_668475-MLA69219770024_052023-F.webp",
+    img: "https://media.istockphoto.com/id/1300036679/es/foto/computadora-de-escritorio-vintage-y-retro.jpg?s=612x612&w=0&k=20&c=WBNswsIxdJSHY9cABQK1AfxVMYEXl_eDPM2eWgYJtvE=",
     color: COLORS.primary,
     icon: "home",
   },

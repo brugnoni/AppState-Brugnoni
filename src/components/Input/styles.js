@@ -2,31 +2,26 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   formControl: {
-    width: "100%",
+    marginBottom: 10,
   },
-
   label: {
-    marginVertical: 8,
+    fontFamily: "Roboto",
+    fontSize: 16,
+    marginBottom: 5,
   },
-
   input: {
-    paddingHorizontal: 2,
-
-    paddingVertical: 5,
-
-    borderBottomColor: "#ccc",
-
-    borderBottomWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
   },
-
   errorContainer: {
-    marginTop: 6,
-
-    marginBottom: 8,
+    marginVertical: 5,
   },
-
   errorText: {
     color: "red",
+    fontSize: 13,
   },
 });
 

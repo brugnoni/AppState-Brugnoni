@@ -50,8 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   productItem: {
-    margin: 15,
-    height: 300,
-    width: 150,
+    width: "50%",
   },
 });

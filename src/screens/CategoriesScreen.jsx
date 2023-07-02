@@ -28,7 +28,7 @@ const CategoriesScreen = ({ navigation }) => {
       <FlatList
         data={categories}
         renderItem={renderCategoriesItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
   );

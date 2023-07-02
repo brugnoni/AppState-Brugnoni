@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Alert,
   StyleSheet,
@@ -7,7 +8,6 @@ import {
   Button,
   KeyboardAvoidingView,
 } from "react-native";
-import React from "react";
 import { useState, useCallback, useEffect, useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { signUp } from "../store/actions/auth.action";
@@ -60,9 +60,6 @@ const AuthScreen = () => {
     formIsValid: false,
   });
 
-  const [email, setEmail] = useState("test1234@test.com");
-  const [password, setPassword] = useState("pass1234");
-
   const handleSignUp = () => {
     if (formState.formIsValid) {
       dispatch(
@@ -95,6 +92,7 @@ const AuthScreen = () => {
       keyboardVerticalOffset={50}
     >
       <View style={styles.container}>
+        <Text style={styles.title}>Your Next PC</Text>
         <Text style={styles.title}>Create Account</Text>
         <View>
           <Input
@@ -126,7 +124,6 @@ const AuthScreen = () => {
         </View>
         <View style={styles.footer}>
           <Button title="Register" onPress={handleSignUp} />
-          <Button title="Sign In" onPress={() => console.log("Sign In")} />
         </View>
       </View>
     </KeyboardAvoidingView>
@@ -138,35 +135,30 @@ export default AuthScreen;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: "grey",
+    backgroundColor: "#f9f9f9",
     justifyContent: "center",
     alignItems: "center",
   },
-
-  title: {
-    flex: 1,
-    fontSize: 24,
-    marginBottom: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
   container: {
     width: "80%",
     maxWidth: 400,
-    backgroundColor: "white",
-    height: "50%",
-    padding: 12,
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-
+  title: {
+    fontSize: 24,
+    marginBottom: 10,
+    textAlign: "center",
+  },
   footer: {
     marginTop: 20,
-  },
-
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });

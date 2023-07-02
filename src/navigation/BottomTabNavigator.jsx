@@ -8,7 +8,7 @@ import OrdersNavigator from "./OrdersNavigator";
 
 const BottomTabs = createBottomTabNavigator();
 
-export default BottomTabNavigator = () => {
+export default BottomTabsNavigator = () => {
   return (
     <BottomTabs.Navigator
       screenOptions={{
